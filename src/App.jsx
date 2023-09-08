@@ -1,14 +1,29 @@
 import { useState } from 'react'
 import './App.css'
 import todo from './todo'
+import Actor  from './Actor';
+import singer from './singer';
 
 function App() {
+  const actors = ['Sakib','Raj']
+  const singers = [
+    { id:1, name: 'dr.habi jabi',age: 45},
+    {id:2, name: 'habi jabi',age: 55},
+    {id:3, name: 'drp.habi jabi',age: 65},
+  ]
   return (
     <>
       <h1>Vite + React</h1>
-      <todo task="learn react" isDone={true}></todo>
+      {
+        singers.map(singer => <singer singer={singer}></singer>)
+      }
+      <Actor name={"Bappa Raz"}></Actor>
+      {
+        actors.map(actor =><Actor name={actor }></Actor> )
+      }
+      {/* <todo task="learn react" isDone={true}></todo>
       <todo task="Explore core concepts"isdone={false}></todo>
-      <todo task="try jsx" isdone={false}></todo>
+      <todo task="try jsx" isdone={false}></todo> */}
       {/* <Device name="Laptop" price="55"></Device>
       <Device name="mobile" price="17"></Device>
       <Device name="watch" price="3"></Device>
