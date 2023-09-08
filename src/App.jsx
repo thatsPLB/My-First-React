@@ -1,23 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import todo from './todo'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <h1>Vite + React</h1>
+      <todo task="learn react" isDone={true}></todo>
+      <todo task="Explore core concepts"isdone={false}></todo>
+      <todo task="try jsx" isdone={false}></todo>
+      {/* <Device name="Laptop" price="55"></Device>
+      <Device name="mobile" price="17"></Device>
+      <Device name="watch" price="3"></Device>
       <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Student></Student>
-      <Developer></Developer>
-     
+      <Student grade="7" score="99"></Student>
+      <Developer></Developer> 
+      */}
     </>
   )
+}
+function Device (props){
+  // console.log(props);
+  return <h2>This Device: {props.name} price: {props.price}</h2>
 }
 function Person(){
   const age = 25;
@@ -25,16 +29,18 @@ function Person(){
   const person = {name : 'salman',age:100} 
   return <h3>I am a {person.name} with age: {age + money}</h3>
 }
-function Student (){
+const {grade, score} = {grade: '7', score: '99'};
+function Student ({grade, score}){
+  console.log(grade,score);
   return <div className='student'>
     <h3>This is a Student</h3>
-    <p>Name:</p>
-    <p>Age:</p>
+    <p>Class: {grade}</p>
+    <p>Score:{score}</p>
   </div>
 }
 function Developer(){
   const developerStyle = {
-    margin: : '20px',
+    margin:  '20px',
     padding: '20px',
     border:'2px solid purple'
   }
